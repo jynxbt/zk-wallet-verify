@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Wallet Verification</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Solana Wallet Verification</h1>
+            <p class="subtitle">Zero-knowledge proof wallet authentication</p>
+        </header>
+
+        <main>
+            <div id="step-1" class="step active">
+                <div class="card">
+                    <h2>Step 1: Enter Your Wallet Address</h2>
+                    <p class="description">Enter your Solana wallet address to begin verification</p>
+                    
+                    <form id="wallet-form">
+                        <div class="input-group">
+                            <label for="wallet-address">Wallet Address</label>
+                            <input 
+                                type="text" 
+                                id="wallet-address" 
+                                placeholder="Enter your Solana wallet address"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="init-btn">
+                            Start Verification
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="step-2" class="step hidden">
+                <div class="card">
+                    <h2>Step 2: Verify Wallet Ownership</h2>
+                    <p class="description" id="step2-description">Sign a message with your wallet to generate a zero-knowledge proof</p>
+                    
+                    <!-- zk proof method -->
+                    <div id="zk-method" class="verification-method">
+                        <div class="challenge-box">
+                            <div class="challenge-label">Zero-Knowledge Proof Verification</div>
+                            <div class="challenge-code" id="challenge-code"></div>
+                            <p class="privacy-note">Your private key never leaves your wallet</p>
+                        </div>
+
+                        <div class="message-box">
+                            <h3>Message to Sign:</h3>
+                            <div class="message-display" id="challenge-message"></div>
+                            <button class="btn btn-secondary" id="copy-message-btn">Copy Message</button>
+                        </div>
+
+                        <div class="instructions-box">
+                            <h3>Instructions:</h3>
+                            <ol>
+                                <li>Click "Sign & Verify" below</li>
+                                <li>Your wallet will prompt you to sign the message</li>
+                                <li>Review and approve the signature request</li>
+                                <li>Verification happens instantly - no transaction fees!</li>
+                            </ol>
+                        </div>
+                    </div>
+
+
+                    <div class="button-group">
+                        <button class="btn btn-secondary" id="back-btn">Back</button>
+                        <button class="btn btn-primary" id="verify-btn">Sign & Verify</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-3" class="step hidden">
+                <div class="card">
+                    <div id="success-message" class="hidden">
+                        <div class="success-icon"></div>
+                        <h2>Verification Successful!</h2>
+                        <p class="description">Your wallet ownership has been verified</p>
+                        
+                        <div class="token-box">
+                            <label>Session Token:</label>
+                            <div class="token-display" id="session-token"></div>
+                            <button class="btn btn-secondary" id="copy-token-btn">Copy Token</button>
+                        </div>
+
+                        <button class="btn btn-primary" id="restart-btn">Verify Another Wallet</button>
+                    </div>
+
+                    <div id="error-message" class="hidden">
+                        <div class="error-icon"></div>
+                        <h2>Verification Failed</h2>
+                        <p class="error-text" id="error-text"></p>
+                        
+                        <div class="button-group">
+                            <button class="btn btn-secondary" id="retry-btn">Try Again</button>
+                            <button class="btn btn-primary" id="restart-error-btn">Start Over</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p id="loading-text">Processing...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Secure wallet verification without direct connection</p>
+        </footer>
+    </div>
+
+    <script type="module" src="client.js"></script>
+</body>
+</html>
+

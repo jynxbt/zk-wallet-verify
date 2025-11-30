@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ffffff;
+    --primary-dark: #cccccc;
+    --secondary-color: #ffffff;
+    --background: #000000;
+    --surface: #1a1a1a;
+    --surface-light: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #999999;
+    --error: #ffffff;
+    --success: #ffffff;
+    --border: #333333;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+main {
+    flex: 1;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+}
+
+.description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.step {
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.step.hidden {
+    display: none;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--text-primary);
+}
+
+.btn {
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--text-primary);
+    color: var(--background);
+    width: 100%;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    background: var(--primary-dark);
+}
+
+.btn-secondary {
+    background: var(--surface-light);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--border);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.challenge-box {
+    background: var(--surface-light);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.challenge-label {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.challenge-code {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: 0.5rem;
+}
+
+.instructions-box {
+    background: var(--surface-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.instructions-box h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.instructions-box ol {
+    margin-left: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.instructions-box li {
+    margin-bottom: 0.75rem;
+}
+
+.instructions-box code {
+    background: var(--background);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: var(--text-primary);
+    font-weight: bold;
+    border: 1px solid var(--border);
+}
+
+.wallet-address-display {
+    background: var(--surface-light);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.wallet-address-display code {
+    color: var(--text-primary);
+    font-family: 'Courier New', monospace;
+    word-break: break-all;
+}
+
+.verification-method {
+    margin-bottom: 2rem;
+}
+
+.verification-method.hidden {
+    display: none;
+}
+
+.message-box {
+    background: var(--surface-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.message-box h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.message-display {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    word-break: break-all;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.privacy-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.amount-display {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--surface-light);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.amount-display strong {
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.amount-display span {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.button-group .btn {
+    flex: 1;
+}
+
+.success-icon,
+.error-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-icon {
+    background: var(--surface-light);
+    border: 3px solid var(--text-primary);
+    position: relative;
+}
+
+.success-icon::before {
+    content: '✓';
+    color: var(--text-primary);
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.error-icon {
+    background: var(--surface-light);
+    border: 3px solid var(--text-primary);
+    position: relative;
+}
+
+.error-icon::before {
+    content: '✕';
+    color: var(--text-primary);
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.token-box {
+    background: var(--surface-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.token-box label {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.token-display {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    color: var(--text-primary);
+    word-break: break-all;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+}
+
+.error-text {
+    color: var(--text-primary);
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--surface-light);
+    border-radius: 8px;
+    border-left: 4px solid var(--text-primary);
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 14, 39, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border);
+    border-top-color: var(--text-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#loading-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+/* responsive */
+@media (max-width: 640px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .challenge-code {
+        font-size: 2rem;
+        letter-spacing: 0.25rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+}
+
