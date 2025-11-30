@@ -1,0 +1,23 @@
+{
+  "name": "zk-wallet-verify",
+  "version": "1.0.0",
+  "description": "Connection-less sol wallet verification using zero-knowledge proofs",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "start": "bun run src/index.ts",
+    "build:client": "bun build public/client.ts --outdir public --target browser --minify"
+  },
+  "dependencies": {
+    "hono": "^4.0.0",
+    "@solana/web3.js": "^1.87.6",
+    "@noble/ed25519": "^2.0.0",
+    "tweetnacl": "^1.0.3",
+    "bs58": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  }
+}
+
